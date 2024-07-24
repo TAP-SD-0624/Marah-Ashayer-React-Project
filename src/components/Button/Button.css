@@ -1,0 +1,45 @@
+:root{
+    --brand-primary: #0768AC;
+    --brand-secondary: #03C180;
+    --bg_default: #FFFFFF;
+    --bg_body: #F0F9FF;
+    --lines-color: #DDDDDD;
+    --body-text: #333333;
+    --heart-color: #DC143C;
+    --star-color: #EE931C;
+    --author-color: #898989;
+    --details-color: #FFFFFF;
+    --details-bg: #333333;
+}
+.button{
+    border: 0.5px solid var(--lines-color);
+    border-radius: 5px;
+    background-color: var(--bg_default);
+    padding: 5px;
+    cursor: pointer;
+    color: var(--body-text);}
+.button span{
+    display: inline-block;
+    vertical-align: middle;
+    
+}
+.button:last-child{
+    margin-left: 5px;
+}
+
+.button-icon {
+    vertical-align: middle;
+    margin-right: 4px;
+    margin-bottom: 4px;
+    font-size: 16px;
+    margin-right: 5px;
+    margin-bottom: 1.5px;
+}
+@media only screen and (max-width:768px){
+    .button span{
+        display: none;
+    }
+    .button-icon{
+        margin: 0 auto;
+    }
+}

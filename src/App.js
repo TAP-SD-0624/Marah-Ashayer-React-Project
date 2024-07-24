@@ -1,23 +1,43 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useEffect, useState } from 'react';
+import Header from './components/Header/Header';
+import Triangles from './components/Triangles/Triangles';
+import Footer from './components/Footer/Footer.jsx';
+import Card from './components/Card/Card.jsx';
+import SearchBar from './components/SearchBar/SearchBar.jsx';
 
 function App() {
+  const [courses, setCourses] = useState([]);
+
+  useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const response = await fetch('https://tap-web-1.herokuapp.com/topics/list');
+        const data = await response.json();
+        setCourses(data);
+      } catch (error) {
+        console.error('Error fetching courses:', error);
+      }
+    };
+
+    fetchCourses();
+  }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+          <Header/>
+          <Triangles/>
+          <div className="container">
+                  <SearchBar/>
+                  
+                  <div className="topics-found"><p>"39" Web Topics Found</p></div>
+                  <div className="cards">
+                      {courses.map(course => (
+                      <Card key={course.id} course={course} />))}
+                  </div>
+              
+          </div>
+
+          <Footer/>
     </div>
   );
 }
