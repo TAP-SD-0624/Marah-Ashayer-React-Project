@@ -37,19 +37,7 @@
   }
 }
 */
-:root{
-  --brand-primary: #0768AC;
-  --brand-secondary: #03C180;
-  --bg_default: #FFFFFF;
-  --bg_body: #F0F9FF;
-  --lines-color: #DDDDDD;
-  --body-text: #333333;
-  --heart-color: #DC143C;
-  --star-color: #EE931C;
-  --author-color: #898989;
-  --details-color: #FFFFFF;
-  --details-bg: #333333;
-}
+
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap');
 
 * {
@@ -82,23 +70,6 @@ body{
     flex-direction: column;
     justify-content: space-between;
     flex: 1;}
-.cards{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    justify-content: space-between;
-    gap: 30px;
-    background-color: var(--bg-body);
-    margin-top: 10px;} 
-
-.topics-found{
-      font-weight: 700;
-      margin-bottom: 22px;
-      color: var(--body-text);}
 .hidden {
       display: none;}
       
-.loading {
-      font-size: 20px;
-      text-align: center;
-      padding: 20px;
-      }

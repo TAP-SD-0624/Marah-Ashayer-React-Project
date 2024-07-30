@@ -1,44 +1,33 @@
 import './App.css';
-import React, { useEffect, useState } from 'react';
-import Header from './components/Header/Header';
-import Triangles from './components/Triangles/Triangles';
-import Footer from './components/Footer/Footer.jsx';
-import Card from './components/Card/Card.jsx';
-import SearchBar from './components/SearchBar/SearchBar.jsx';
+import './variables.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes  } from 'react-router-dom';
+import Home from './pages/Home/Home.jsx';
+import Details from './pages/Details/Details.jsx';
+import Layout from './layout/Layout.jsx';
+import { ThemeProvider } from './context/ThemeContext';
+import { FavoritesProvider } from './context/FavoritesContext';
+import { FavoritesVisibilityProvider } from './context/FavoritesVisibilityContext';
 
 function App() {
-  const [courses, setCourses] = useState([]);
 
-  useEffect(() => {
-    const fetchCourses = async () => {
-      try {
-        const response = await fetch('https://tap-web-1.herokuapp.com/topics/list');
-        const data = await response.json();
-        setCourses(data);
-      } catch (error) {
-        console.error('Error fetching courses:', error);
-      }
-    };
-
-    fetchCourses();
-  }, []);
   return (
-    <div className="App">
-          <Header/>
-          <Triangles/>
-          <div className="container">
-                  <SearchBar/>
-                  
-                  <div className="topics-found"><p>"39" Web Topics Found</p></div>
-                  <div className="cards">
-                      {courses.map(course => (
-                      <Card key={course.id} course={course} />))}
-                  </div>
-              
+    <ThemeProvider>
+       <FavoritesProvider>
+       <FavoritesVisibilityProvider>
+        <Router>
+          <div className="App">
+              <Layout >
+                  <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/details/:id" element={<Details />} />
+                  </Routes>
+              </Layout>
           </div>
-
-          <Footer/>
-    </div>
+        </Router>
+        </FavoritesVisibilityProvider>
+        </FavoritesProvider>
+    </ThemeProvider>
   );
 }
 

@@ -11,21 +11,20 @@
 }
 
 
-.search-bar .search{
+.search{
     display: flex;
     margin-left: 10px;
     align-items: center;
     gap: 10px;}
-.search-bar .search input {
+.search input {
     border: none;
     /*width: 100%;*/
     background-color: var(--bg_default);
     font-size: 15px;}
-.search-bar .sort-filter{
+.sort-filter{
     display: flex;
-    border: 0px solid var(--lines-color);
-    border-radius: 10px;}
-.search-bar .sort-filter .dropdown{
+    border: 0px solid var(--lines-color);}
+.dropdown{
     border-left:1px solid var(--lines-color);
     border-bottom-right-radius: 10px;
     border-top-right-radius: 10px ;
@@ -33,7 +32,7 @@
     padding: 4px;
     width: 200px;}
 
-.search-bar .sort-filter .dropdown select{
+select{
     border: none;
     font-weight: 500;
     font-size: 16px;
@@ -41,10 +40,10 @@
     color: var(--body-text);
     width: 100%;}
 
-.search-bar .search input:focus{
+input:focus{
         outline: none;
     }
-.search-bar select:focus{
+ select:focus{
         outline: none;
     }
 .labels{

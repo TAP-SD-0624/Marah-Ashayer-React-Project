@@ -1,13 +1,13 @@
-import './Triangles.css';
+import styles from './Triangles.module.scss';
 export default function (){
     return (
-        <section class="welcome-section ">
-            <div className="triangles">
-                <div className="green-triangle"></div>
-                <div className="blue-triangle"></div>
+        <section className={styles['welcome-section']}>
+            <div className={styles.triangles}>
+                <div className={styles["green-triangle"]}></div>
+                <div className={styles["blue-triangle"]}></div>
             </div>
-            <div className="center-welcome-section">
-                <div className="welcome-text">
+            <div className={styles["center-welcome-section"]}>
+                <div className={styles["welcome-text"]}>
                     <h3>Welcome to our website!</h3>
                     <h6>We have a new design that's fresh,modern,and easy to use.</h6>
                 </div>

@@ -1,6 +1,9 @@
-import './Logo.css';
+import styles from './Logo.module.scss';
+import { Link } from 'react-router-dom';
 export default function Header (){
     return (
-        <h4 className="logo">Web Topics</h4>
+       <Link to="/" className={styles.logo}>
+        <h4>Web Topics</h4>
+      </Link>
     );
 }
